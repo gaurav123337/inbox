@@ -1,0 +1,29 @@
+.body {
+  display: grid;
+  grid-template-columns: 'repeat(2, 2fr)';
+  grid-template-areas:
+    'header header'
+    'form list'
+    'footer footer';
+}
+
+.header {
+  grid-area: header;
+  background: #888;
+}
+.footer {
+  grid-area: footer;
+  background: rgb(11, 13, 129);
+  color: #fff;
+}
+.form {
+  grid-area: form;
+  background: lightblue;
+}
+.list {
+  grid-area: list;
+  background: lightcoral;
+}
+.clicked {
+  background: red;
+}
