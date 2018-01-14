@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-//import { INBOX_MSG } from '../action'
+import { connect } from 'react-redux'
 import MsgDesc from '../msgDesc'
 
-export default class MsgList extends Component {
+class MsgList extends Component {
   state = {
     clicked: -1
   }
@@ -11,8 +11,12 @@ export default class MsgList extends Component {
     this.setState({ clicked: num })
   }
 
+  shouldComponentUpdate = (nextProps, nextState) => {
+    return true
+  }
+
   render = () => {
-    //console.log(this.props.msgList, 'Newly added list')
+    console.log(this.props, 'Newly added list')
     return (
       <div>
         <h4>My Default List of Messages</h4>
@@ -21,16 +25,17 @@ export default class MsgList extends Component {
             this.props.msgList.map((msg, index) => {
               if (msg.hasOwnProperty('msg')) {
                 return (
-                  <MsgDesc
-                    key={index}
-                    keyIndex={index}
-                    msg={msg}
-                    clicked={index === this.state.clicked}
-                    onClicked={this.clickedItem}
-                  />
+                  <div>
+                    <MsgDesc
+                      key={index}
+                      keyIndex={index}
+                      msg={msg}
+                      clicked={index === this.state.clicked}
+                      onClicked={this.clickedItem}
+                    />
+                  </div>
                 )
-              }
-              else return null
+              } else return null
             })
           ) : (
             <h1>Nothing to display </h1>
@@ -40,3 +45,10 @@ export default class MsgList extends Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+    repliedMsgList: state.repliedMsgVal,
+    parentMsgList: state.msgVal
+  }
+}
+export default connect(mapStateToProps, null)(MsgList)

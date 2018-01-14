@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import ReplyMsgInfo from '../replyMsgInfo'
+//import ReplyMsgInfo from '../replyMsgInfo'
+import MyRepliedMsg from '../myRepliedMsg'
 import { connect } from 'react-redux'
 import { rplyMsg } from '../action'
 
@@ -53,9 +54,9 @@ class ReplyMsg extends Component {
           />
           <input type="submit" value="Submit" />
         </form>
-        <ReplyMsgInfo
-          parentMsgList={this.props.parentMsgList}
-          repliedMsgList={this.state.repliedMsgList}
+        <MyRepliedMsg
+          parentId={this.props.parentKey}
+          repliedMsg={this.state.repliedMsgList}
         />
       </section>
     ) : (

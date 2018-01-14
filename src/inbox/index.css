@@ -4,6 +4,7 @@
   grid-template-areas:
     'header header'
     'form list'
+    'repliedMsgList repliedMsgList'
     'footer footer';
 }
 
@@ -15,6 +16,10 @@
   grid-area: footer;
   background: rgb(11, 13, 129);
   color: #fff;
+}
+.repliedMsgList {
+  grid-area: repliedMsgList;
+  background: rgb(90, 226, 78);
 }
 .form {
   grid-area: form;

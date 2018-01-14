@@ -30,7 +30,7 @@ export const repliedMsgReducer = (state = {}, action) => {
         },
         ...state
       ]
-      //console.log(replyState, 'newState in replyState')
+      console.log(replyState, 'newState in replyState')
       return replyState
     default:
       return state

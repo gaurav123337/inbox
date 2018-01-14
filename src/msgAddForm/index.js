@@ -7,9 +7,7 @@ class AddMsgForm extends Component {
     msg: []
   }
   addMyMsg = e => {
-    //console.log(e)
     e.preventDefault()
-    //console.log(this.state)
     this.props.addMsg(this.state)
   }
   getKey = e => {
